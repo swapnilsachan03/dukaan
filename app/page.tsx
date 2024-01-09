@@ -262,16 +262,16 @@ export default function Home() {
                   </div>
 
                   { tableItems.map((item, index) => (
-                    <div className='rounded-md h-[48px] border-b-[1px] flex flex-row items-center justify-between py-3.5 px-3'>
-                      <p className='w-[150.67px] text-sm text-sky-600 font-medium' key={index}> {item.orderId} </p>
+                    <div className='rounded-md h-[48px] border-b-[1px] flex flex-row items-center justify-between py-3.5 px-3' key={index}>
+                      <p className='w-[150.67px] text-sm text-sky-600 font-medium'> {item.orderId} </p>
 
                       <div className='w-[150.67px] flex flex-row items-center gap-2'>
-                        <div className={`h-2 w-2 rounded-full ${item.status === 'Successful' ? 'bg-green-500' : 'bg-neutral-500'}`}/>
-                        <p className='text-sm' key={index}> {item.status} </p>
+                        <div className={`h-2 w-2 rounded-full ${item.status === 'Successful' ? 'bg-green-600' : 'bg-neutral-400'}`}/>
+                        <p className='text-sm'> {item.status} </p>
                       </div>
 
-                      <p className='w-[150.67px] text-sm text-[#4D4D4D]' key={index}> {item.tId} </p>
-                      <p className='w-[150.67px] text-sm text-[#4D4D4D]' key={index}> {item.date} </p>
+                      <p className='w-[150.67px] text-sm text-[#4D4D4D]'> {item.tId} </p>
+                      <p className='w-[150.67px] text-sm text-[#4D4D4D]'> {item.date} </p>
                       <p className='w-[150.67px] text-sm text-right'> {item.amount} </p>
                     </div>
                   ))}
