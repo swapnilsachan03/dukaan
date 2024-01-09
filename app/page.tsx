@@ -33,6 +33,51 @@ const table = [
   'Order ID', 'Status', 'Transaction ID', 'Refund Date'
 ]
 
+const tableItems = [
+  {
+    orderId: '#281209',
+    status: 'Successful',
+    tId: '131634495747',
+    date: 'Today, 08:45 PM',
+    amount: '₹1,125.00',
+  },
+  {
+    orderId: '#281208',
+    status: 'Processing',
+    tId: '131634495747',
+    date: 'Yesterday, 3:00 PM',
+    amount: '₹1,125.00',
+  },
+  {
+    orderId: '#281207',
+    status: 'Successful',
+    tId: '131634495747',
+    date: '12 Jul 2023, 03:00 PM',
+    amount: '₹1,125.00',
+  },
+  {
+    orderId: '#281206',
+    status: 'Successful',
+    tId: '131634495747',
+    date: '12 Jul 2023, 03:00 PM',
+    amount: '₹1,125.00',
+  },
+  {
+    orderId: '#281205',
+    status: 'Successful',
+    tId: '131634495747',
+    date: '12 Jul 2023, 03:00 PM',
+    amount: '₹1,125.00',
+  },
+  {
+    orderId: '#281204',
+    status: 'Successful',
+    tId: '131634495747',
+    date: '12 Jul 2023, 03:00 PM',
+    amount: '₹1,125.00',
+  }
+]
+
 export default function Home() {
   return (
     <div className='flex flex-row'>
@@ -82,7 +127,7 @@ export default function Home() {
           <div className='w-[360px] h-[28px] flex flex-row items-center gap-4'>
             <h5 className='font-medium text-xl'> Payouts </h5>
 
-            <div className='h-4 flex flex-row gap-1.5 text-black/30 items-center'>
+            <div className='h-4 flex flex-row gap-1.5 text-[#4d4d4d] items-center'>
               <GoQuestion size={14} />
               <p className='text-[12px]'> How it works? </p>
             </div>
@@ -116,11 +161,31 @@ export default function Home() {
               </div>
 
               <div className='flex flex-row h-[154px] gap-5'>
-                <div className='h-[154px] w-[370.67px] bg-[#146EB4] rounded-lg flex flex-col'>
-                  <div></div>
+                <div className='h-[154px] w-[370.67px] bg-[#146EB4] rounded-lg flex flex-col relative'>
+                  <div className='h-[118px] p-5'>
+                    <div className='h-[78px] flex flex-col gap-4 text-white'>
+                      <div className='flex flex-row items-center gap-2 font-light'>
+                        <p> Next Payout </p>
+                        <GoQuestion size={14} />
+                      </div>
+
+                      <div className='flex flex-row justify-between items-center'>
+                        <p className='text-3xl font-medium'> ₹2,312.23 </p>
+
+                        <div className='flex flex-row gap-1 items-center text-white'>
+                          <p className='underline underline-offset-2 font-medium text-sm'> 23 Orders </p>
+                          <FaChevronRight size={12} />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className='absolute bottom-0 h-[36px] flex flex-row text-white text-sm justify-between w-full bg-[#0E4F82] py-2 px-6 rounded-lg'>
+                    <p> Next payout date: </p>
+                    <p className='font-medium'> Today, 04:00PM </p>
+                  </div>
                 </div>
 
-                <div className='h-[118px] w-[370.67px] flex flex-col p-5 shadow-md rounded'>
+                <div className='h-[118px] w-[370.67px] flex flex-col p-5 shadow-[0px_2px_6px_0px_#1A181E0A] rounded'>
                   <div className='h-[78px] w-[330.67px] flex flex-col gap-4 items-stretch'>
                     <div className='flex flex-row items-center gap-2 text-[#4D4D4D]'>
                       <p> Amount Pending </p>
@@ -130,15 +195,15 @@ export default function Home() {
                     <div className='flex flex-row justify-between items-baseline'>
                       <p className='text-3xl font-medium'> ₹92,312.20 </p>
 
-                      <div className='flex flex-row gap-1 items-center text-blue-500'>
-                        <p className='underline underline-offset-2 font-medium'> 13 Orders </p>
-                        <FaChevronRight size={14} />
+                      <div className='flex flex-row gap-1 items-center text-sky-600'>
+                        <p className='underline underline-offset-2 font-semibold text-sm'> 13 Orders </p>
+                        <FaChevronRight size={12} />
                       </div>
                     </div>
                   </div>
                 </div>
                 
-                <div className='h-[118px] w-[370.67px] flex flex-col p-5 shadow-md rounded'>
+                <div className='h-[118px] w-[370.67px] flex flex-col p-5 shadow-[0px_2px_6px_0px_#1A181E0A] rounded'>
                   <div className='h-[78px] w-[330.67px] flex flex-col gap-4 items-stretch'>
                     <div className='flex flex-row items-center gap-2 text-[#4D4D4D]'>
                       <p> Amount Processed </p>
@@ -167,7 +232,7 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className='p-3 pb-2 rounded-lg h-[400px] shadow-md'>
+                <div className='p-3 pb-2 rounded-lg h-[400px] shadow-[0px_2px_6px_0px_#1A181E0A]'>
                   <div className='flex flex-col h-[92px] gap-3'>
                     <div className='h-10 flex flex-row items-center justify-between'>
                       <div className='w-[248px] h-full flex flex-row items-center gap-2 py-2.5 px-4 border-[1px] rounded-md text-black/60'>
@@ -195,6 +260,21 @@ export default function Home() {
                       <p className='w-[150.67px] text-sm font-medium text-right'> Order Amount </p>
                     </div>
                   </div>
+
+                  { tableItems.map((item, index) => (
+                    <div className='rounded-md h-[48px] border-b-[1px] flex flex-row items-center justify-between py-3.5 px-3'>
+                      <p className='w-[150.67px] text-sm text-sky-600 font-medium' key={index}> {item.orderId} </p>
+
+                      <div className='w-[150.67px] flex flex-row items-center gap-2'>
+                        <div className={`h-2 w-2 rounded-full ${item.status === 'Successful' ? 'bg-green-500' : 'bg-neutral-500'}`}/>
+                        <p className='text-sm' key={index}> {item.status} </p>
+                      </div>
+
+                      <p className='w-[150.67px] text-sm text-[#4D4D4D]' key={index}> {item.tId} </p>
+                      <p className='w-[150.67px] text-sm text-[#4D4D4D]' key={index}> {item.date} </p>
+                      <p className='w-[150.67px] text-sm text-right'> {item.amount} </p>
+                    </div>
+                  ))}
                 </div>
 
 
